@@ -243,5 +243,17 @@ td {
 		left: 0px;
 		margin: 0px;
 	}
+	.entry {
+		margin-left: 0%;
+		margin-right: 0%;
+	}
+	
+	
+	#ruinan-pic>img {
+		width: 5rem;
+	}
+
+	
+	
 
 }
