@@ -219,108 +219,29 @@ td {
 	}
 }
 
-@media screen and (max-width: 600px) {
-	#top-header {
-		height: 20%;
-	}
 
-	#top-header h1 {
+@media only screen and (max-width: 700px) {
+	h1 {
 		font-size: 1.5em;
 	}
 
-	#top-header h2 {
-		font-size: 1em;
-	}
-
-	#navbar {
-		height: 70px;
-	}
-
-	#navbar li {
-		font-size: 0.8em;
-	}
-
-	#ruinan-pic {
-		display: none;
-	}
-
-	.entry {
-		margin-left: 10%;
-		margin-right: 10%;
-		min-width: 80%;
-	}
-}
-
-@media screen and (min-width: 601px) and (max-width: 900px) {
-	#top-header {
-		height: 25%;
-	}
-
-	#top-header h1 {
-		font-size: 1.8em;
-	}
-
-	#top-header h2 {
+	h2 {
 		font-size: 1.2em;
 	}
 
+	h3 {
+		font-size: 1.1em;
+	}
+
 	#navbar {
-		height: 60px;
+		display: none;
 	}
 
-	#navbar li {
-		font-size: 0.9em;
-	}
-
-	#ruinan-pic {
-		display: block;
-		margin-right: 2%;
-	}
-
-	#ruinan-pic>img {
-		width: 8rem;
-	}
-
-	.entry {
-		margin-left: 15%;
-		margin-right: 15%;
-		min-width: 70%;
-	}
-}
-
-@media screen and (min-width: 901px) {
 	#top-header {
-		height: 30%;
+		width: 100%;
+		height: 35%;
+		left: 0px;
+		margin: 0px;
 	}
 
-	#top-header h1 {
-		font-size: 2.2em;
-	}
-
-	#top-header h2 {
-		font-size: 1.5em;
-	}
-
-	#navbar {
-		height: 50px;
-	}
-
-	#navbar li {
-		font-size: 1em;
-	}
-
-	#ruinan-pic {
-		display: block;
-		margin-right: 5%;
-	}
-
-	#ruinan-pic>img {
-		width: 10rem;
-	}
-
-	.entry {
-		margin-left: 20%;
-		margin-right: 20%;
-		min-width: 60%;
-	}
 }
