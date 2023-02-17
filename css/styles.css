@@ -1,8 +1,8 @@
-:root{
-	--ucsd-yellow:#FFCD00;
-	--ucsd-navy:#182B49;
-	--ucsd-sand:#F5F0E6;
-	--ucsd-blue:#00629B;
+:root {
+	--ucsd-yellow: #FFCD00;
+	--ucsd-navy: #182B49;
+	--ucsd-sand: #F5F0E6;
+	--ucsd-blue: #00629B;
 }
 
 * {
@@ -15,6 +15,7 @@ html {
 	height: 100%;
 	width: 100%;
 }
+
 body {
 	height: 100%;
 	width: 100%;
@@ -29,38 +30,39 @@ main {
 }
 
 p {
-	font-size: .9em;
-	color: #000000;
+	font-size: .9rem;
+	color: black;
 	font-weight: 300;
 }
 
 h1 {
-	font-size: 2.2em;
+	font-size: 2.2rem;
 	font-weight: 300;
 }
 
 h2 {
-	font-size: 1.5em;
+	font-size: 1.5rem;
 	font-weight: 300;
 }
 
 h3 {
-	font-size: 1em;
+	font-size: 1rem;
 	font-weight: 300;
 }
 
 a {
 	text-decoration: none;
-	font-size: 1em;
+	font-size: 1rem;
 }
 
 li {
-	font-size: .9em;
+	font-size: .9rem;
 }
 
 #top-header {
 	background-image: url('../images/Geisel-Library-hr.jpeg');
-	background-size:100% 100%;;
+	background-size: 100% 100%;
+	;
 	width: 100%;
 	height: 30%;
 	position: relative;
@@ -68,12 +70,12 @@ li {
 
 #top-header h1 {
 	text-align: center;
-	color: #FFFFFF;
+	color: white;
 }
 
 #top-header h2 {
 	text-align: center;
-	color: #FFFFFF;
+	color: white;
 }
 
 #navbar {
@@ -88,25 +90,26 @@ li {
 	justify-content: space-around;
 }
 
-#ruinan-pic{
+#ruinan-pic {
 	float: right;
 	margin-right: 5%;
 	filter: contrast(120%);
 }
 
-#ruinan-pic > img{
+#ruinan-pic>img {
 	width: 10rem;
 }
 
 #navbar li:hover {
 	background-color: var(--ucsd-blue);
-    transform: scale(1.1);	
+	transform: scale(1.1);
 	transition: all 300ms;
 	cursor: pointer;
-	
+
 }
+
 #navbar li {
-	list-style-type:none;
+	list-style-type: none;
 }
 
 
@@ -176,7 +179,7 @@ td {
 	list-style: none;
 }
 
-#submit-btn > input {
+#submit-btn>input {
 	background-color: var(--ucsd-yellow);
 	color: var(--ucsd-navy);
 	display: inline-block;
@@ -189,7 +192,7 @@ td {
 
 #submit-btn>input:hover {
 	color: var(--ucsd-blue);
-	transform: scale(1.1);	
+	transform: scale(1.1);
 	transition: all 300ms;
 	cursor: pointer;
 }
@@ -198,21 +201,126 @@ td {
 	padding: .5rem;
 }
 
-#thank-you{
+#thank-you {
 	animation: move 10s ease-in-out infinite;
-  }
-  
-  @keyframes move {
+}
+
+@keyframes move {
 	0% {
-	  transform: translateX(0);
+		transform: translateX(0);
 	}
+
 	50% {
-	  transform: translateX(100px);
+		transform: translateX(100px);
 	}
+
 	100% {
-	  transform: translateX(0);
+		transform: translateX(0);
 	}
-  }
-  
-  
-  
+}
+
+@media screen and (max-width: 600px) {
+	#top-header {
+		height: 20%;
+	}
+
+	#top-header h1 {
+		font-size: 1.5em;
+	}
+
+	#top-header h2 {
+		font-size: 1em;
+	}
+
+	#navbar {
+		height: 70px;
+	}
+
+	#navbar li {
+		font-size: 0.8em;
+	}
+
+	#ruinan-pic {
+		display: none;
+	}
+
+	.entry {
+		margin-left: 10%;
+		margin-right: 10%;
+		min-width: 80%;
+	}
+}
+
+@media screen and (min-width: 601px) and (max-width: 900px) {
+	#top-header {
+		height: 25%;
+	}
+
+	#top-header h1 {
+		font-size: 1.8em;
+	}
+
+	#top-header h2 {
+		font-size: 1.2em;
+	}
+
+	#navbar {
+		height: 60px;
+	}
+
+	#navbar li {
+		font-size: 0.9em;
+	}
+
+	#ruinan-pic {
+		display: block;
+		margin-right: 2%;
+	}
+
+	#ruinan-pic>img {
+		width: 8rem;
+	}
+
+	.entry {
+		margin-left: 15%;
+		margin-right: 15%;
+		min-width: 70%;
+	}
+}
+
+@media screen and (min-width: 901px) {
+	#top-header {
+		height: 30%;
+	}
+
+	#top-header h1 {
+		font-size: 2.2em;
+	}
+
+	#top-header h2 {
+		font-size: 1.5em;
+	}
+
+	#navbar {
+		height: 50px;
+	}
+
+	#navbar li {
+		font-size: 1em;
+	}
+
+	#ruinan-pic {
+		display: block;
+		margin-right: 5%;
+	}
+
+	#ruinan-pic>img {
+		width: 10rem;
+	}
+
+	.entry {
+		margin-left: 20%;
+		margin-right: 20%;
+		min-width: 60%;
+	}
+}
