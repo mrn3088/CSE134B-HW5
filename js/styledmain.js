@@ -1,4 +1,4 @@
-import {showDialog, cancelDialog, submitPost, displayPosts, setEditMode } from "./blog.js";
+import {showDialog, cancelDialog, submitPost, displayPosts, setEditMode } from "./styledblog.js";
 const theAddButton = document.getElementById('add-btn');
 theAddButton.addEventListener('click', () => {
     setEditMode(-1);

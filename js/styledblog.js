@@ -10,7 +10,6 @@ export function setEditMode(value) {
 };
 
 export function cancelDialog() {
-    console.log('cancel!');
     const theDialog = document.getElementById('dialog');
     const theTitle = theDialog.querySelector('#title-field');
     const theDate = theDialog.querySelector('#date-field');
@@ -91,7 +90,7 @@ export function displayPosts() {
     if (theList.length === 0) {
         thePostList.outerHTML = "<p id='blog-list'>No posts yet.</p>";
     } else {
-        thePostList.outerHTML = "<ul id='blog-list'></ul>";
+        thePostList.outerHTML = "<div id='blog-list'></div>";
         theList.forEach((v, i) => appendPost(v, i));
     }
 };
@@ -101,9 +100,25 @@ function appendPost(aValue, anIndex) {
     const theDate = aValue['date'];
     const theSummary = aValue['summary'];
 
-    const theLi = document.createElement('li');
+    const theArticle = document.createElement('div');
+    theArticle.classList.add('article');
+    const theArtivleTitle = document.createElement('h3');
+    theArtivleTitle.classList.add('article-title');
+    const theArticleContent = document.createElement('div');
+    theArticleContent.classList.add('article-content');
+    const theArticleSummary = document.createElement('div');
+    const theArticleDate = document.createElement('div');
+    const theArticleButton = document.createElement('div');
+    theArticleButton.classList.add('article-button-container');
 
-    theLi.innerHTML = `${theTitle}, ${theDate}: ${theSummary}`;
+    theArticle.appendChild(theArtivleTitle);
+    theArticle.appendChild(theArticleContent);
+    theArticleContent.appendChild(theArticleSummary);
+    theArticleContent.appendChild(theArticleDate);
+    theArticleContent.appendChild(theArticleButton);
+    theArtivleTitle.innerText = `${theTitle}`;
+    theArticleSummary.innerHTML = `${theSummary}`;
+    theArticleDate.innerHTML = `${theDate}`;
 
     let theEditBtn = document.createElement('button');
     let theDeleteBtn = document.createElement('button');
@@ -121,13 +136,14 @@ function appendPost(aValue, anIndex) {
     });
 
     theDeleteBtn.classList.add('delete-btn');
+
     theDeleteBtn.textContent = 'Delete';
 
-    theLi.appendChild(theEditBtn);
-    theLi.appendChild(theDeleteBtn);
+    theArticleButton.appendChild(theEditBtn);
+    theArticleButton.appendChild(theDeleteBtn);
 
     const thePostList = document.getElementById('blog-list');
-    thePostList.appendChild(theLi);
+    thePostList.appendChild(theArticle);
 }
 
 function deletePost(anIndex) {
@@ -140,9 +156,18 @@ function deletePost(anIndex) {
 
 function formatDate(inputDate) {
     const theDateArr = inputDate.split('/');
-    const theYear = theDateArr[2];
-    const theMonth = theDateArr[0];
-    const theDay = theDateArr[1];
+    let theYear = theDateArr[2];
+    while (theYear.length < 4) {
+        theYear = '0' + theYear;
+    }
+    let theMonth = theDateArr[0];
+    if (theMonth.length < 2) {
+        theMonth = '0' + theMonth;
+    }
+    let theDay = theDateArr[1];
+    if (theDay.length < 2) {
+        theDay = '0' + theDay;
+    }
     return `${theYear}-${theMonth}-${theDay}`;
 }
 
@@ -159,4 +184,3 @@ function editPost(anIndex) {
     theSummary.value = thePost['summary'];
     theDialog.showModal();
 }
-

@@ -141,5 +141,3 @@ thePromptButton.addEventListener('click', () => {
         }
     });
 });
-
-
