@@ -53,18 +53,28 @@ function createAlertDialog(aMessage) {
     return theDialog;
 };
 
+function formatDateUS(date) {
+    const month = date.getMonth() + 1; // add 1 to convert from 0-based index to 1-based
+    const day = date.getDate();
+    const year = date.getFullYear();
+    return `${month.toString().padStart(2, '0')}/${day.toString().padStart(2, '0')}/${year.toString()}`;
+}
+
 export function submitPost() {
     const theDialog = document.getElementById('dialog');
     const theTitle = theDialog.querySelector('#title-field');
     const theDate = theDialog.querySelector('#date-field');
     const theSummary = theDialog.querySelector('#summary-field');
     const theDateValue = theDate.value;
+    let theTmpDate = new Date(theDateValue);
+    theTmpDate.setDate(theTmpDate.getDate() + 1);
+
     if (theTitle.value === "" || theSummary.value === "" || isNaN(Date.parse(theDateValue))) {
         showAlert('Some fields are empty!');
     } else {
         const theDict = {
             title: theTitle.value,
-            date: new Date(theDateValue).toLocaleDateString("en-US"),
+            date: formatDateUS(theTmpDate),
             summary: theSummary.value
         };
         const theList = JSON.parse(localStorage.getItem('postList')) || [];
