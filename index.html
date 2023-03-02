@@ -2,10 +2,10 @@
 
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
 	<title>Ruinan Ma</title>
 	<link rel="icon" href="images/favicon.ico">
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
-	<meta name="viewport" content="width=device-width">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
@@ -13,6 +13,11 @@
 
 <body>
 	<header id="top-header">
+		<div class="top-header-container">
+			<button class="hamburger">
+				<div class="bar"></div>
+			</button>
+		</div>
 		<ul id="navbar">
 			<li class="navbutton">
 				<a href="#about">About</a>
@@ -33,11 +38,20 @@
 				<a href="#contact">Contact</a>
 			</li>
 		</ul>
+
 		<br>
 		<h1>Ruinan Ma</h1>
 		<h2>Computer Science Student @ UCSD</h2>
 
 	</header>
+	<nav class="mobile-nav">
+		<a href="#about">About</a>
+		<a href="#education">Education</a>
+		<a href="#coursework">Coursework</a>
+		<a href="#experience">Experience</a>
+		<a href="#projects">Projects</a>
+		<a href="#contact">Contact</a>
+	</nav>
 
 	<main>
 		<section class="entry" id="about">
@@ -279,6 +293,7 @@
 
 
 	</main>
+	<script src="./js/hamburger.js"></script>
 
 
 </html>
