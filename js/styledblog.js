@@ -139,7 +139,7 @@ function appendPost(aValue, anIndex) {
 
     theEditBtn.classList.add('edit-btn');
 
-    theEditBtn.textContent = 'Edit';
+    theEditBtn.innerHTML = 'Edit<i class="fa fa-pencil" aria-hidden="true"></i>';
 
     theDeleteBtn.addEventListener('click', () => {
         deletePost(anIndex);
@@ -147,7 +147,7 @@ function appendPost(aValue, anIndex) {
 
     theDeleteBtn.classList.add('delete-btn');
 
-    theDeleteBtn.textContent = 'Delete';
+    theDeleteBtn.innerHTML = 'Delete<i class="fa fa-trash" aria-hidden="true"></i>';
 
     theArticleButton.appendChild(theEditBtn);
     theArticleButton.appendChild(theDeleteBtn);

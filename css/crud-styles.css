@@ -222,3 +222,10 @@ main {
 .article-button-container > Button {
     display: block;
 }
+
+.dialog-button-container {
+    display: flex;
+    flex-direction: 'row';
+    gap:2rem;
+    justify-content: center;
+}
