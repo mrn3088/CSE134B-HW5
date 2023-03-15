@@ -48,3 +48,7 @@ export function form2JSON() {
     };
     return JSON.stringify(theForm);
 };
+
+export function getID() {
+    return document.getElementById("id").value;
+}

@@ -1,4 +1,4 @@
-import { renderJSON, getDate, form2JSON, displayMethod, form2QueryString } from "./methodtest.js";
+import { renderJSON, getDate, form2JSON, displayMethod, form2QueryString,getID } from "./methodtest.js";
 const url = 'https://httpbin.org/';
 
 document.getElementById("date").value = getDate();
@@ -97,7 +97,7 @@ thePutBtn.addEventListener('click', () => {
 theDelBtn.addEventListener('click', () => {
     if (theOpt.checked) {
         const theXhr = new XMLHttpRequest();
-        theXhr.open('DELETE', `${url}delete`);
+        theXhr.open('DELETE', `${url}delete?id=${getID()}`);
         theXhr.onreadystatechange = function () {
             if (theXhr.readyState === 4 && theXhr.status === 200) {
                 renderJSON(JSON.parse(theXhr.responseText));
@@ -108,9 +108,8 @@ theDelBtn.addEventListener('click', () => {
         theXhr.setRequestHeader('Content-Type', 'application/json');
         theXhr.send(form2QueryString());
     } else {
-        fetch(`${url}delete`, {
+        fetch(`${url}delete?id=${getID()}`, {
             method: 'DELETE',
-            body: form2QueryString(),
             headers: {
                 'Content-Type': 'application/json'
             }
