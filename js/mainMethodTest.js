@@ -1,4 +1,4 @@
-import { renderJSON, getDate, form2JSON } from "./methodtest.js";
+import { renderJSON, getDate, form2JSON, displayMethod } from "./methodtest.js";
 const url = 'https://httpbin.org/';
 
 document.getElementById("date").value = getDate();
@@ -17,6 +17,7 @@ thePostBtn.addEventListener('click', () => {
         theXhr.onreadystatechange = function () {
             if (theXhr.readyState === 4 && theXhr.status === 200) {
                 renderJSON(JSON.parse(theXhr.responseText));
+                displayMethod(true);
             }
         };
         theXhr.setRequestHeader('Content-Type', 'application/json');
@@ -30,7 +31,11 @@ thePostBtn.addEventListener('click', () => {
             }
         })
             .then(response => response.json())
-            .then(renderJSON);
+            .then(json => {
+                renderJSON(json);
+                displayMethod(false);
+            })
+            .catch(error => console.error(error));;
     }
 
 });
@@ -42,13 +47,18 @@ theGetBtn.addEventListener('click', () => {
         theXhr.onreadystatechange = function () {
             if (theXhr.readyState === 4 && theXhr.status === 200) {
                 renderJSON(JSON.parse(theXhr.responseText));
+                displayMethod(true);
             }
         };
         theXhr.send();
     } else {
         fetch(`${url}get`)
             .then(response => response.json())
-            .then(renderJSON);
+            .then(json => {
+                renderJSON(json);
+                displayMethod(false);
+            })
+            .catch(error => console.error(error));;
     }
 });
 
@@ -59,6 +69,8 @@ thePutBtn.addEventListener('click', () => {
         theXhr.onreadystatechange = function () {
             if (theXhr.readyState === 4 && theXhr.status === 200) {
                 renderJSON(JSON.parse(theXhr.responseText));
+                displayMethod(true);
+
             }
         };
         theXhr.setRequestHeader('Content-Type', 'application/json');
@@ -72,7 +84,11 @@ thePutBtn.addEventListener('click', () => {
             }
         })
             .then(response => response.json())
-            .then(renderJSON);
+            .then(json => {
+                renderJSON(json);
+                displayMethod(false);
+            })
+            .catch(error => console.error(error));;
     }
 });
 
@@ -83,6 +99,8 @@ theDelBtn.addEventListener('click', () => {
         theXhr.onreadystatechange = function () {
             if (theXhr.readyState === 4 && theXhr.status === 200) {
                 renderJSON(JSON.parse(theXhr.responseText));
+                displayMethod(true);
+
             }
         };
         theXhr.setRequestHeader('Content-Type', 'application/json');
@@ -96,11 +114,17 @@ theDelBtn.addEventListener('click', () => {
             }
         })
             .then(response => response.json())
-            .then(renderJSON);
+            .then(json => {
+                renderJSON(json);
+                displayMethod(false);
+            })
+            .catch(error => console.error(error));;
     }
 });
 
 theClearBtn.addEventListener('click', () => {
     const output = document.getElementById("output");
     output.innerHTML = "";
+    const outputHeader = document.getElementById("output-h");
+    outputHeader.innerHTML = "Output";
 });

@@ -10,7 +10,9 @@
 <body>
     <header>
         <h1 id="header">Method Test</h1>
+
     </header>
+
     <main>
         <h2>Request Type</h2>
         <div>
@@ -39,10 +41,43 @@
             <button id="deleteBtn">Delete</button>
             <button id="clearBtn">Clear</button>
         </div>
-        <h2>Output</h2>
+        <h2 id="output-h">Output</h2>
         <output id="output"></output>
     </main>
     <script async type="module" src="js/mainMethodTest.js"></script>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        table th,
+        table td {
+            border: 1px solid #ccc;
+            padding: 0.5rem;
+            text-align: left;
+        }
+
+        table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f8f8f8;
+        }
+
+        table tr:hover {
+            background-color: #e6e6e6;
+        }
+
+        table thead tr th {
+            position: sticky;
+            top: 0;
+            background-color: #fff;
+        }
+    </style>
 </body>
 
 </html>

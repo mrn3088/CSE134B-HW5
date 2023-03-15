@@ -1,7 +1,34 @@
 export function renderJSON(json) {
     const output = document.getElementById("output");
-    output.innerHTML = "<pre>" + JSON.stringify(json, null, 2) + "</pre>";
+    output.innerHTML = parseJSON(json);
 };
+
+export function displayMethod(isXHR) {
+    const outputLabel = document.getElementById("output-h");
+    if (isXHR) {
+        outputLabel.innerHTML = "Output (with XMLHttpRequest)";
+    } else {
+        outputLabel.innerHTML = "Output (with fetch)";
+    }
+}
+
+function isObject(aValue) {
+    return aValue !== null && typeof aValue === 'object' && !Array.isArray(aValue) ;
+}
+
+function parseJSON(json) {
+    let table = "<table>";
+    for (let key in json) {
+        if (isObject(json[key])){
+            table += `<tr><td>${key}</td><td>${parseJSON(json[key])}</td></tr>`;
+        } else {
+            table += `<tr><td>${key}</td><td>${json[key]}</td></tr>`;
+        }
+    }
+    table += "</table>";
+    return table;
+};
+
 
 export function getDate() {
     return new Date().toLocaleString();
