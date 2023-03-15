@@ -1,4 +1,4 @@
-import { renderJSON, getDate, form2JSON, displayMethod } from "./methodtest.js";
+import { renderJSON, getDate, form2JSON, displayMethod, form2QueryString } from "./methodtest.js";
 const url = 'https://httpbin.org/';
 
 document.getElementById("date").value = getDate();
@@ -21,11 +21,11 @@ thePostBtn.addEventListener('click', () => {
             }
         };
         theXhr.setRequestHeader('Content-Type', 'application/json');
-        theXhr.send(form2JSON());
+        theXhr.send(form2QueryString());
     } else {
         fetch(`${url}post`, {
             method: 'POST',
-            body: form2JSON(),
+            body: form2QueryString(),
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -43,7 +43,8 @@ thePostBtn.addEventListener('click', () => {
 theGetBtn.addEventListener('click', () => {
     if (theOpt.checked) {
         const theXhr = new XMLHttpRequest();
-        theXhr.open('GET', `${url}get`);
+        const theQuery = form2QueryString();
+        theXhr.open('GET', `${url}get?${theQuery}`);
         theXhr.onreadystatechange = function () {
             if (theXhr.readyState === 4 && theXhr.status === 200) {
                 renderJSON(JSON.parse(theXhr.responseText));
@@ -52,7 +53,8 @@ theGetBtn.addEventListener('click', () => {
         };
         theXhr.send();
     } else {
-        fetch(`${url}get`)
+        const theQuery = form2QueryString();
+        fetch(`${url}get?${theQuery}`)
             .then(response => response.json())
             .then(json => {
                 renderJSON(json);
@@ -74,11 +76,11 @@ thePutBtn.addEventListener('click', () => {
             }
         };
         theXhr.setRequestHeader('Content-Type', 'application/json');
-        theXhr.send(form2JSON());
+        theXhr.send(form2QueryString());
     } else {
         fetch(`${url}put`, {
             method: 'PUT',
-            body: form2JSON(),
+            body: form2QueryString(),
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -104,11 +106,11 @@ theDelBtn.addEventListener('click', () => {
             }
         };
         theXhr.setRequestHeader('Content-Type', 'application/json');
-        theXhr.send(form2JSON());
+        theXhr.send(form2QueryString());
     } else {
         fetch(`${url}delete`, {
             method: 'DELETE',
-            body: form2JSON(),
+            body: form2QueryString(),
             headers: {
                 'Content-Type': 'application/json'
             }

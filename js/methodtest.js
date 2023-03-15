@@ -29,6 +29,11 @@ function parseJSON(json) {
     return table;
 };
 
+export function form2QueryString() {
+    const form = document.getElementById("form");
+    console.log( new URLSearchParams(new FormData(form)).toString());
+    return new URLSearchParams(new FormData(form)).toString();
+}
 
 export function getDate() {
     return new Date().toLocaleString();
